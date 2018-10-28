@@ -37,7 +37,27 @@ describe('make function', () => {
 });
 
 describe('recursion function', () => {
-  const tree = { value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130 } } };
+  const tree = {
+    value: 100,
+    left: {
+      value: 90,
+      left: {
+        value: 70,
+      },
+      right: {
+        value: 99,
+      },
+    },
+    right: {
+      value: 120,
+      left: {
+        value: 110,
+      },
+      right: {
+        value: 130,
+      },
+    }
+  };
   const result = [[100], [90, 120], [70, 99, 110, 130]];
   it('Возвращает правильный массив значений узлов', () => {
     assert.deepEqual(recursion(tree), result);
