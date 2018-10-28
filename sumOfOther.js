@@ -6,4 +6,4 @@ module.exports = function sumOfOther(array) {
     let buf = array.filter((elem, i) => i !== index);
     return buf.reduce((sum, x) => sum + x);
   });
-}
+};

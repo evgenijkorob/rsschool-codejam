@@ -15,4 +15,4 @@ module.exports = function make(argument) {
     return f;
   }
   return f(argument);
-}
+};
