@@ -1,10 +1,7 @@
 module.exports = function make(argument) {
-  const error = { message: 'Callback is undefined' };
   let argList = [];
   function f(arg) {
-    if (arg === undefined) {
-      return error;
-    }
+    if (arg === undefined) throw new Error('Callback is undefined');
     if (typeof arg === 'function') {
       if (!argList.length) {
         return arg();

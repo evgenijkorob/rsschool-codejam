@@ -1,9 +1,9 @@
-const assert = require('assert');  
+const assert = require('assert');
 const sumOfOther = require('../sumOfOther.js');
 const make = require('../make.js');
 const recursion = require('../recursion.js');
 
-describe('sumOfOther(array)', () => {
+describe('sumOfOther function', () => {
   const arr = [2, 3, 4, 1];
   it('Считает сумму всех соседних элементов для i-го', () => {
     assert.deepEqual(sumOfOther(arr), [8, 7, 6, 9]);
@@ -29,11 +29,17 @@ describe('make function', () => {
     assert.deepEqual(make(retStr), 'result');
   });
   it('При вызове без аргументов возвращает ошибку', () => {
-    const error = make();
-    assert.deepEqual(error, { message: 'Callback is undefined' });
+    assert.throws(() => make(), Error, 'Callback is undefined');
   });
   it('При вызове без аргументов возвращает ошибку', () => {
-    const error = make(1)(2)();
-    assert.deepEqual(error, { message: 'Callback is undefined' });
+    assert.throws(() => make(1)(2)(), Error, 'Callback is undefined');
+  });
+});
+
+describe('recursion function', () => {
+  const tree = { value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130 } } };
+  const result = [[100], [90, 120], [70, 99, 110, 130]];
+  it('Возвращает правильный массив значений узлов', () => {
+    assert.deepEqual(recursion(tree), result);
   });
 });
