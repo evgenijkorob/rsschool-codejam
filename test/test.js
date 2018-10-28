@@ -58,8 +58,24 @@ describe('recursion function', () => {
       },
     }
   };
+  const errTree = {
+    value: 100,
+    left: {
+      value: 90,
+      left: {
+        value: 70,
+      },
+      right: {
+        value: 99,
+      },
+    },
+    right: {}
+  };
   const result = [[100], [90, 120], [70, 99, 110, 130]];
   it('Возвращает правильный массив значений узлов', () => {
     assert.deepEqual(recursion(tree), result);
+  });
+  it('Бросает ошибку, если узел не дерево', () => {
+    assert.throws(() => recursion(errTree), Error, 'Bad tree');
   });
 });
