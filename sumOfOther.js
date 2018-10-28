@@ -1,5 +1,5 @@
 module.exports = function sumOfOther(array) {
-  if (array === undefined || array === null || array.length === 0) {
+  if (!array || !array.length) {
     return undefined;
   }
   return array.map((element, index) => {
